@@ -76,11 +76,11 @@ stages:
 
     - publish: $(System.DefaultWorkingDirectory)/Tests
       artifact: tests
-  - stage: Deploy
-    displayName: 'Deploy Web App'
-    dependsOn: Build
-    condition: succeeded()
-    jobs:
+- stage: Deploy
+  displayName: 'Deploy Web App'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
     - deployment: DeploymentJob
       pool:
         vmImage: $(vmImageName)
